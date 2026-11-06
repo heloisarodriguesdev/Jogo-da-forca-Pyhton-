@@ -1,7 +1,7 @@
 import random
 
 def escolher_palavra():
-    palavras = ['python', 'programação', 'desenvolvimento', 'jogo', 'computador']
+    palavras = ['python', 'programaçao', 'desenvolvimento', 'jogo', 'computador']
     return random.choice(palavras)
 
 def mostrar_palavra(palavra, letras_acertadas):
