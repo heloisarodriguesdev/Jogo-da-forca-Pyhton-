@@ -25,7 +25,7 @@ def avaliar(estrelas):
     elif estrelas == 5:
         print("Obrigado por jogar! \nAvaliação: ⭐⭐⭐⭐⭐ \nAgradecemos por avaliar nosso jogo!")
     else:
-        print("Avaliação inválida. Por favor, avalie com uma nota de 1 a 5.")
+        print("Avaliação inválida.")
 
 
 
