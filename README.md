@@ -11,6 +11,7 @@ O objetivo é descobrir a palavra secreta antes que as seis tentativas acabem.
 - Validação das letras digitadas.
 - Impedimento de letras repetidas.
 - Opção de jogar novamente.
+- Avaliar o jogo
 
 --Tecnologias utilizadas
 - Python
