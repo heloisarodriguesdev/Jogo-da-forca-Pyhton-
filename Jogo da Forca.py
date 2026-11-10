@@ -13,19 +13,34 @@ def mostrar_palavra(palavra, letras_acertadas):
             mostrar += "_ "
     return mostrar.strip()
 
+def avaliar(estrelas):
+    if estrelas == 1:
+        print("Obrigado por jogar! \nAvaliação: ⭐ \nAgradecemos por avaliar nosso jogo!")
+    elif estrelas == 2:
+        print("Obrigado por jogar! \nAvaliação: ⭐⭐ \nAgradecemos por avaliar nosso jogo!")
+    elif estrelas == 3:
+        print("Obrigado por jogar! \nAvaliação: ⭐⭐⭐ \nAgradecemos por avaliar nosso jogo!")
+    elif estrelas == 4:
+        print("Obrigado por jogar! \nAvaliação: ⭐⭐⭐⭐ \nAgradecemos por avaliar nosso jogo!")    
+    elif estrelas == 5:
+        print("Obrigado por jogar! \nAvaliação: ⭐⭐⭐⭐⭐ \nAgradecemos por avaliar nosso jogo!")
+    else:
+        print("Avaliação inválida. Por favor, avalie com uma nota de 1 a 5.")
+
 
 
 jogar = True
 
 print("==========JOGO DA FORCA==========")
 print("Bem-vindo ao jogo da forca!!" \
-"\nVocê tem 6 tentativas para acertar a palavra secreta!!" \
+"\nVocê tem 6 tentativas para acertar a palavra secreta!! \nSe você errar a letra perderá 5 pontos, mas se acertar ganhará 10 pontos!!" 
 "\nBoa sorte!!")
 
 while jogar:
     palavra = escolher_palavra()
     letras_acertadas = []
     letras_erradas = []
+    pontuacao = [0]
     max_erros = 6
 
     while max_erros > 0:
@@ -42,18 +57,26 @@ while jogar:
 
         if letra in palavra:
             letras_acertadas.append(letra)
+            pontuacao[0] += 10
             if "_" not in mostrar_palavra(palavra, letras_acertadas):
                 print("Parabéns!! Você acertou a palavra: " + palavra)
+                print("Sua pontuação foi: " + str(pontuacao[0]))
                 break
              
         else:
             letras_erradas.append(letra)
             max_erros -= 1
+            pontuacao[0] -= 5
             print("Letra incorreta! Você tem " + str(max_erros) + " tentativas restantes.")
             if max_erros == 0:
                 print("Infelizmente você perdeu!! \nA palavra certa era: " + palavra)
+                print("Sua pontuação foi: " + str(pontuacao[0]))
                 break
     jogar = input("Deseja jogar novamente? (s/n): ").lower()
     if jogar != 's':
         jogar = False
         print("Obrigado por jogar!!")
+
+
+avaliacao = int(input("Por favor, avalie o jogo com uma nota de 1 a 5: "))
+avaliar(avaliacao)
